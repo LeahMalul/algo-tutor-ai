@@ -17,7 +17,6 @@ class StudyService:
 
         text = await self.pdf_service.extract_text(file)
 
-        study_pack = text
-        #await self.ai_service.generate_study_pack(text)
+        study_pack = await self.ai_service.generate_study_pack(text)
 
         return study_pack

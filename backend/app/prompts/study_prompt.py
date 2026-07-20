@@ -1,16 +1,16 @@
 
-
 def build_study_prompt(text: str) -> str:
     return f"""
-You are an expert learning assistant.
+You are an expert tutor.
 
-Analyze the following study material and create a structured study pack.
+Analyze the following study material.
 
-Your task:
-1. Create a clear summary of the material.
+Tasks:
+1. Write a concise summary.
 2. Extract the most important key concepts and explain each one.
-3. Create practice questions with answers and explanations.
+3. Generate practice questions with answers and explanations.
 
-Study material:
+Study Material:
+
 {text}
 """
