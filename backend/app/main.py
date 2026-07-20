@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.api.study import router as study_router
-
+from app.core import logger
 app = FastAPI(title="AlgoTutor AI")
 app.include_router(study_router)
 

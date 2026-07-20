@@ -3,6 +3,8 @@ from fastapi import UploadFile
 from app.services.pdf_service import PDFService
 from app.models.study_pack import StudyPack
 from app.services.ai_service import AIService
+import logging
+logger = logging.getLogger(__name__)
 
 class StudyService:
 
@@ -14,7 +16,7 @@ class StudyService:
         """
         Generate a study pack from an uploaded PDF.
         """
-
+        logger.info("Creating study pack")
         text = await self.pdf_service.extract_text(file)
 
         study_pack = await self.ai_service.generate_study_pack(text)

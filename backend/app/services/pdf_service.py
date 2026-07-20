@@ -1,13 +1,14 @@
 import fitz
 from fastapi import UploadFile
-
-
+import logging
+logger = logging.getLogger(__name__)
 class PDFService:
 
     async def extract_text(self, file: UploadFile) -> str:
         """
         Extract plain text from an uploaded PDF file.
         """
+        logger.info("Extracting text from PDF")
         try:
             content = await file.read()
 

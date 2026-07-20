@@ -1,10 +1,11 @@
 from google import genai
 from google.genai import types
-
 from app.config import GEMINI_API_KEY
 from app.models.study_pack import StudyPack
 from app.prompts.study_prompt import build_study_prompt
 
+import logging
+logger = logging.getLogger(__name__)
 
 class AIService:
 
@@ -13,7 +14,7 @@ class AIService:
         # genai.Client(api_key=GEMINI_API_KEY)
             
     async def generate_study_pack(self, text: str) -> StudyPack:
-
+        logger.info("Sending request to AI provider")
         return StudyPack(
             summary="This is a placeholder summary.",
             key_concepts=[
