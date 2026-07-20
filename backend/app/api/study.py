@@ -13,7 +13,11 @@ def health():
     return {"status": "ok"}
 
 
-@router.post("/upload")
+@router.post(
+    "/upload",
+    summary="Upload PDF study material",
+    description="Upload a PDF file and generate a structured study pack"
+)
 async def upload_pdf(file: UploadFile = File(...)):
     logger.info(f"Uploading file: {file.filename}")
     if file.content_type != "application/pdf":
