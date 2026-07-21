@@ -1,4 +1,5 @@
 import Header from "../components/layout/Header";
+import StudyPackView from "../components/studyPack/StudyPackView";
 import UploadSection from "../components/upload/UploadSection";
 
 import { useStudyGeneration } from "../hooks/study/useStudyGeneration";
@@ -44,15 +45,7 @@ function Home() {
 
 
         {studyPack && (
-          <div className="mt-8 rounded-xl bg-green-50 p-6">
-            <h2 className="text-xl font-bold">
-              Study pack generated successfully 🎉
-            </h2>
-
-            <p className="mt-3 text-slate-700">
-              {studyPack.summary}
-            </p>
-          </div>
+          <StudyPackView studyPack={studyPack} />
         )}
 
       </div>
