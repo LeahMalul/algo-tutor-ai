@@ -10,7 +10,7 @@ export async function uploadStudyMaterial(
   formData.append("file", file);
 
   const response = await fetch(
-    `${API_BASE_URL}/upload`,
+    `${API_BASE_URL}/study/upload`,
     {
       method: "POST",
       body: formData,
