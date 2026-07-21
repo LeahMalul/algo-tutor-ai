@@ -1,7 +1,11 @@
 import { useRef, useState } from "react";
-import { FileText, Upload } from "lucide-react";
+import { FileText, Upload, Sparkles } from "lucide-react";
 
-function UploadSection() {
+interface UploadSectionProps {
+  onGenerate: (file: File) => void;
+}
+
+function UploadSection({ onGenerate }: UploadSectionProps) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -20,6 +24,14 @@ function UploadSection() {
 
   const handleBrowseClick = () => {
     fileInputRef.current?.click();
+  };
+
+  const handleGenerateClick = () => {
+    if (!selectedFile) {
+      return;
+    }
+
+    onGenerate(selectedFile);
   };
 
   return (
@@ -69,6 +81,14 @@ function UploadSection() {
               </p>
             </div>
           </div>
+
+          <button
+            onClick={handleGenerateClick}
+            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 font-semibold text-white transition hover:bg-indigo-700"
+          >
+            <Sparkles className="h-5 w-5" />
+            Generate Study Pack
+          </button>
         </div>
       )}
     </section>
