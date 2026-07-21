@@ -1,8 +1,15 @@
+import Header from "../components/layout/Header";
+import UploadSection from "../components/upload/UploadSection";
+
 function Home() {
   return (
-    <div>
-      <h1>AlgoTutor AI</h1>
-    </div>
+    <main className="min-h-screen bg-slate-50 px-6 py-16">
+      <div className="mx-auto max-w-5xl">
+        <Header />
+
+        <UploadSection />
+      </div>
+    </main>
   );
 }
 
